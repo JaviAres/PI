@@ -1,0 +1,181 @@
+#youtube,#twitter,#instagram{
+    width: 50px;
+}
+
+#novedades{
+    margin-top: 20px;
+}
+.flip-card {
+  background-color: transparent;
+  height: 450px;
+  perspective: 1000px;
+  margin-bottom: 50px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+}
+
+.flip-card:focus {
+    outline: 0;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus .flip-card-inner{
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.flip-card-front {
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-card-back {
+  color: white;
+  transform: rotateY(180deg);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#carta-detras{
+    display: block;
+}
+
+#logo{
+    width: 100px;
+}
+
+#logo-reserva-confirmado{
+ width: 200px;
+}
+
+#reserva-disponible{
+    margin-left: 30px;
+    color: green;
+}
+
+#reserva-no-disponible{
+    margin-left: 30px;
+    color: red;
+}
+#imagen-ocupado{
+    margin-top: 50px;
+}
+
+#boton-reserva{
+    margin-left: 50px;
+    margin-bottom: 10px;
+    background-color:#6e3dcf
+}
+
+#dato-usuario{
+    margin: 10px;
+}
+
+#tendencias{
+  margin-left: 160px;
+}
+
+.content {
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+  margin: auto;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.content .content-overlay {
+  background: rgba(0,0,0,0.7);
+  position: absolute;
+  height: 100%;
+
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  -moz-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.content:hover .content-overlay{
+  opacity: 1;
+}
+
+.content-image{
+  width: 100%;
+  max-height: 500px;
+}
+
+#imagen_merchandising, #imagen_reservas{
+  object-fit: contain;
+}
+
+
+.content-details {
+  position: absolute;
+  text-align: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.content:hover .content-details{
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+}
+
+.content-details h3{
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
+
+.content-details p{
+  color: #fff;
+  font-size: 0.8em;
+}
+
+.fadeIn-bottom{
+  top: 80%;
+}
+
+.row #reserva,.row #merchandising{
+  width: 0%;
+}
+
+#titulo_menu{
+  display: flex;
+  justify-content: space-around;
+}
