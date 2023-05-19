@@ -101,7 +101,7 @@
               <div class="card-body">
                 <h5 class="card-title">Photon Hypernova Booster Box</h5>
                 <p class="card-text">Una caja con 20 sobres de la expansion Photon Hypernova</p>
-                <a href="html/producto.html" class="btn btn-primary">¡Ver Ahora!</a>
+                <a href="php/producto.php" class="btn btn-primary">¡Ver Ahora!</a>
               </div>
             </div>
           </div>
@@ -111,7 +111,7 @@
               <div class="card-body">
                 <h5 class="card-title">Deck de estructura Mundo Oscuro</h5>
                 <p class="card-text">Un deck pre hecho de los monstruos Mundo Oscuro</p>
-                <a href="html/producto.html" class="btn btn-primary">¡Ver Ahora!</a>
+                <a href="php/producto.php" class="btn btn-primary">¡Ver Ahora!</a>
               </div>
             </div>
           </div>

@@ -19,7 +19,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-              <a class="navbar-brand" href="../index.html"><img src="../images/logo-tienda.png" alt="Logo Tienda" id="logo"></a>
+              <a class="navbar-brand" href="../index.php"><img src="../images/logo-tienda.png" alt="Logo Tienda" id="logo"></a>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item dropdown">
