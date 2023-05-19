@@ -36,10 +36,10 @@
           </form>
         </div>
         <div class="row" style="margin: 10px;">
-          <a href="html/user.html"><p style="color: white;">Usuario</p></a>
+          <a href="php/user.php"><p style="color: white;">Usuario</p></a>
         </div>
         <div class="row" style="margin: 10px;">
-          <a href="html/cart.html">
+          <a href="php/carrito.php">
           <p style="color:white">
             Carrito
           </p>
