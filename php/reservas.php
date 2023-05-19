@@ -54,26 +54,31 @@
         <div class="row">
                 <div class="col">
                     <h3 class="border-bottom border-dark">Sala 1</h3>
+                    <div id="contenido_reservas">
                     <img src="../images/logo-tienda.png" alt="Reserva Posible" id="logo-reserva-confirmado" class="img-fluid">
                         <h4 id="reserva-disponible">Disponible</h4>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservaExito" id="boton-reserva">Reserva</button>
+                    </div>
                 </div>
-            
-                <div class="col">
+                <div class="col ">
                     <h3 class="border-bottom border-dark">Sala 2</h3>
+                    <div id="contenido_reservas">
                     <img src="../images/logo-tienda.png" alt="Reserva Posible" id="logo-reserva-confirmado" class="img-fluid">
                     <h4 id="reserva-disponible">Disponible</h4>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservaExito" id="boton-reserva">Reserva</button>
+                    </div> 
                 </div>
                 <div class="col">
-                    
                     <h3 class="border-bottom border-dark">Sala 3</h3>
+                    <div id="contenido_reservas">
                     <img src="../images/espacio-ocupado.png" alt="Espacio Cerrado" id="imagen-ocupado" class="img-fluid">
                     <h4 id="reserva-no-disponible">Ocupado</h4>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservaError" id="boton-reserva">Reserva</button>
-                </div>
+                   </div> 
+               </div>
                 <div class="col">
                     <h3 class="border-bottom border-dark">Sala 4</h3>
+                    <div id="contenido_reservas">
                     <img src="../images/logo-tienda.png" alt="Reserva Posible" id="logo-reserva-confirmado" class="img-fluid">
                     <h4  id="reserva-disponible">Disponible</h4>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservaExito" id="boton-reserva">Reserva</button>
@@ -83,28 +88,36 @@
         <div class="row">
             <div class="col">
                 <h3 class="border-bottom border-dark">Sala 5</h3>
+                <div id="contenido_reservas">
                 <img src="../images/espacio-ocupado.png" alt="Espacio Cerrado" id="imagen-ocupado" class="img-fluid">
                 <h4 id="reserva-no-disponible">Ocupado</h4>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservaError" id="boton-reserva">Reserva</button>
-            </div>
+                </div>
+              </div>
             <div class="col">
                 <h3 class="border-bottom border-dark">Sala 6</h3>
+                <div id="contenido_reservas">
                 <img src="../images/espacio-ocupado.png" alt="Espacio Cerrado" id="imagen-ocupado" class="img-fluid">
                 <h4 id="reserva-no-disponible">Ocupado</h4>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservaError" id="boton-reserva">Reserva</button>
-            </div>
+                </div>
+              </div>
             <div class="col">
                 <h3 class="border-bottom border-dark">Sala 7</h3>
+                <div id="contenido_reservas">
                 <img src="../images/logo-tienda.png" alt="Reserva Posible" id="logo-reserva-confirmado" class="img-fluid">
                 <h4 id="reserva-disponible">Disponible</h4>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservaExito" id="boton-reserva">Reserva</button>
-            </div>
+                </div>
+              </div>
             <div class="col">
                 <h3 class="border-bottom border-dark">Sala 8</h3>
+                <div id="contenido_reservas">
                 <img src="../images/espacio-ocupado.png" alt="Espacio Cerrado" id="imagen-ocupado" class="img-fluid">
                 <h4 id="reserva-no-disponible"> Ocupado</h4>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservaError" id="boton-reserva">Reserva</button>            
-            </div>
+                </div>
+              </div>
         </div>
     </div>
      <!-- Modal para reservas con exito -->

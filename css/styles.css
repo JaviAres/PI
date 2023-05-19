@@ -183,3 +183,12 @@
 #imagen_tendencia{
   height: 300px;
 }
+
+#contenido_reservas{
+
+  margin-left: 60px;
+}
+
+#dato_producto{
+  width: 60%;
+}

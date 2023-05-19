@@ -57,7 +57,7 @@
             <div class="col">
                 <h1 style="margin-top: 20px;">Caja Expertas Magnificas</h1> 
                 <div class="row">
-                  <div class="row">
+                  <div class="row" id="dato_producto">
                     <div class="col">
                         <h5>Impreso en:</h5>
                     </div>
@@ -65,7 +65,7 @@
                         <h5>03/11/2022 </h5>
                     </div>
                   </div>
-                <div class="row">
+                <div class="row" id="dato_producto">
                     <div class="col">
                         <h5>Reimpreso en: </h5>
                     </div> 
@@ -73,7 +73,7 @@
                         <h5>MAMA</h5>
                     </div>
                  </div>
-                 <div class="row">
+                 <div class="row" id="dato_producto">
                     <div class="col">
                         <h5>Precio: </h5>
                     </div> 
