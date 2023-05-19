@@ -179,3 +179,7 @@
   display: flex;
   justify-content: space-around;
 }
+
+#imagen_tendencia{
+  height: 300px;
+}

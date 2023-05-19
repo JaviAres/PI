@@ -78,7 +78,7 @@
           <div class="carousel-caption d-none d-md-block">
             <h1>Expertas Magníficas</h5>
             <p> Hazte con soporte para arquetipos como Tearalaments y Sky Striker.</p>
-            <a href="html/producto.html"><button type="button" class="btn btn-dark">¡Ver Ahora!</button></a>
+            <a href="php/producto.php"><button type="button" class="btn btn-dark">¡Ver Ahora!</button></a>
           </div>
         </div>
       </div>
@@ -96,31 +96,33 @@
       <div class="d-flex justify-content-between align-items-center w-100 mb-4 pb-1 border-bottom border-dark"><h2>Tendencias</h2></div>
         <div class="row" id="tendencias">
           <div class="col">
-            <a href="html/producto.html"><img src="images/photonbox.png" alt="Novedad-1" class="img-fluid" id="novedades" style="max-height: 370px;"></a>
-            <div class="row">
-              <div class="col"><h3>Caja Photon Hypernova</h3></div>
-            </div>
-            <div class="row">
-              <div class="col">60$</div>
+            <div class="card" style="width: 18rem;">
+              <img src="images/photonbox.png" class="card-img-top" alt="foto producto"  id="imagen_tendencia">
+              <div class="card-body">
+                <h5 class="card-title">Photon Hypernova Booster Box</h5>
+                <p class="card-text">Una caja con 20 sobres de la expansion Photon Hypernova</p>
+                <a href="html/producto.html" class="btn btn-primary">¡Ver Ahora!</a>
+              </div>
             </div>
           </div>
           <div class="col"> 
-            <a href="html/producto.html"> <img src="images/structuredw.png" alt="Novedad-2" class="img-fluid" id="novedades" style="max-height: 350px;"></a>
-            <div class="row">
-              <div class="col"><h4>Deck Estructura Mundo Oscuro</h4></div>
-            </div>
-            <div class="row">
-              <div class="col">9$</div>
+            <div class="card" style="width: 18rem;">
+              <img src="images/structuredw.png" class="card-img-top" alt="foto producto"  id="imagen_tendencia">
+              <div class="card-body">
+                <h5 class="card-title">Deck de estructura Mundo Oscuro</h5>
+                <p class="card-text">Un deck pre hecho de los monstruos Mundo Oscuro</p>
+                <a href="html/producto.html" class="btn btn-primary">¡Ver Ahora!</a>
+              </div>
             </div>
           </div>
           <div class="col">
-            <a href="html/producto.html"> <img src="images/magnificentmavensbox.png" alt="Novedad-3" class="img-fluid" id="novedades"></a>
-            <div class="row">
-              <div class="col">
-                <a href="html/producto.html"><h4>Caja Expertas Magnificas</h4></a></div>
-            </div>
-            <div class="row">
-              <div class="col">21$</div>
+            <div class="card" style="width: 18rem;">
+              <img src="images/magnificentmavensbox.png" class="card-img-top" alt="foto producto" id="imagen_tendencia">
+              <div class="card-body">
+                <h5 class="card-title">Magnificent Mavens Box</h5>
+                <p class="card-text">Un set especial con 5 sobres con rareza alta asegurada y fundas exclusivas</p>
+                <a href="php/producto.php" class="btn btn-primary">¡Ver Ahora!</a>
+              </div>
             </div>
           </div>
           </div>
@@ -134,12 +136,12 @@
           <hr>
         <div class="row">
         <div class="content">
-            <a href="html/merchandising">
+            <a href="php/merchandising.php">
             <div class="content-overlay"></div>
             <img class="content-image" src="images/albazplaymat.png" id="imagen_merchandising" alt="imagen menu merchandising">
             <div class="content-details fadeIn-bottom">
-              <h3 class="content-title">This is a title</h3>
-              <p class="content-text">This is a short description</p>
+              <h3 class="content-title">Merchandising</h3>
+              <p class="content-text">¡Busca algo que te ayude a jugar mas comodamente!</p>
             </div>
             </a>
         </div></div>
@@ -149,7 +151,7 @@
           <h2 id="titulo_menu">Reserva una mesa</h2>
           <hr><div class="row">
           <div class="content">
-              <a href="html/reservas.html">
+              <a href="php/reservas.php">
               <div class="content-overlay"></div>
               <img class="content-image" src="images/mesa_juegos.jpg" id="imagen_reservas" alt="imagen menu reservas">
               <div class="content-details fadeIn-bottom">
