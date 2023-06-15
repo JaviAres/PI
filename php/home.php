@@ -58,7 +58,6 @@ session_start();
           <div class="carousel-caption d-none d-md-block">
             <h1> Photon Hypernova</h5>
             <p>En este nuevo set se encuentran los nuevos Kashtira y soporte para los ojos galacticos</p>
-            <a href="#"><button type="button" class="btn btn-dark">¡Ver Ahora!</button></a>
           </div>
         </div>
         <div class="carousel-item">
@@ -66,7 +65,6 @@ session_start();
           <div class="carousel-caption d-none d-md-block">
             <h1>Cyberstorm Access</h5>
             <p>Mejora tus mazos Ciberso con la nueva expansion!</p>
-            <a href="#"><button type="button" class="btn btn-dark">¡Ver Ahora!</button></a>
           </div>
         </div>
         <div class="carousel-item">
@@ -74,7 +72,6 @@ session_start();
           <div class="carousel-caption d-none d-md-block">
             <h1>Expertas Magníficas</h5>
             <p> Hazte con soporte para arquetipos como Tearalaments y Sky Striker.</p>
-            <a href="producto.php"><button type="button" class="btn btn-dark">¡Ver Ahora!</button></a>
           </div>
         </div>
       </div>
@@ -97,7 +94,7 @@ session_start();
               <div class="card-body">
                 <h5 class="card-title">Photon Hypernova Booster Box</h5>
                 <p class="card-text">Una caja con 20 sobres de la expansion Photon Hypernova</p>
-                <a href="producto.php" class="btn btn-primary">¡Ver Ahora!</a>
+           
               </div>
             </div>
           </div>
@@ -107,7 +104,7 @@ session_start();
               <div class="card-body">
                 <h5 class="card-title">Deck de estructura Mundo Oscuro</h5>
                 <p class="card-text">Un deck pre hecho de los monstruos Mundo Oscuro</p>
-                <a href="producto.php" class="btn btn-primary">¡Ver Ahora!</a>
+        
               </div>
             </div>
           </div>
@@ -117,7 +114,7 @@ session_start();
               <div class="card-body">
                 <h5 class="card-title">Magnificent Mavens Box</h5>
                 <p class="card-text">Un set especial con 5 sobres con rareza alta asegurada y fundas exclusivas</p>
-                <a href="producto.php" class="btn btn-primary">¡Ver Ahora!</a>
+
               </div>
             </div>
           </div>

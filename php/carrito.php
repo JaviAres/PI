@@ -34,7 +34,7 @@ include "../utiles_php/conexiondb.php";
           </form>
         </div>
         <div class="row" style="margin: 10px;">
-          <a href="php/user.php"><p style="color: white;"><?php echo($_SESSION["user"]["nombre"])?></p></a>
+          <p style="color: white;"><?php echo($_SESSION["user"]["nombre"])?></p>
           <a href="../index.php"><p style="color: white;">Cerrar Sesion</p></a>
         </div>
         <div class="row" style="margin: 10px;">
