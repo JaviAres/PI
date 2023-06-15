@@ -35,6 +35,7 @@ include "../utiles_php/conexiondb.php";
         </div>
         <div class="row" style="margin: 10px;">
           <a href="php/user.php"><p style="color: white;"><?php echo($_SESSION["user"]["nombre"])?></p></a>
+          <a href="../index.php"><p style="color: white;">Cerrar Sesion</p></a>
         </div>
         <div class="row" style="margin: 10px;">
           <a href="carrito.php">

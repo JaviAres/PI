@@ -37,6 +37,7 @@ $p=$q->fetch_object();
           </div>
           <div class="row" style="margin: 10px;">
             <p style="color: white;"><?php echo($_SESSION["user"]["nombre"])?></p>
+            <a href="../index.php"><p style="color: white;">Cerrar Sesion</p></a>
           </div>
           <div class="row" style="margin: 10px;">
             <a href="carrito.php">

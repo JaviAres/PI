@@ -44,6 +44,7 @@ if(!isset($_POST['busqueda'])||$_POST['busqueda']===""){
         </div>
         <div class="row" style="margin: 10px;">
          <p style="color: white;"><?php echo($_SESSION["user"]["nombre"])?></p>
+         <a href="../index.php"><p style="color: white;">Cerrar Sesion</p></a>
         </div>
         <div class="row" style="margin: 10px;">
           <a href="../php/carrito.php">
