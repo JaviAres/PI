@@ -30,7 +30,7 @@ include "../utiles_php/conexiondb.php";
             <hr>
             <ul style="text-align:center"><a href="./adminVerReservas.php" class="btn btn-primary btn-lg" style=background-color:#6e3dcf>Administracion Reservas</a></ul>
             <hr>
-			<ul style="text-align:center"><a href="/PI/index.php" class="btn btn-primary btn-lg">Salir</a></ul>
+			<ul style="text-align:center"><a href="/el_maletin_de_kaiba/index.php" class="btn btn-primary btn-lg">Salir</a></ul>
             <hr>
 			<br><br>
         </table>
