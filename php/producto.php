@@ -1,3 +1,12 @@
+<?php
+session_start();
+include "../utiles_php/conexiondb.php";
+$producto=$_COOKIE["producto"];
+$id= $_COOKIE["id"];
+$producto_query="SELECT * FROM ".$producto." WHERE id= ".$id.""; 
+$q=$con->query($producto_query);
+$p=$q->fetch_object();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -18,28 +27,19 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="../index.php"><img src="../images/logo-tienda.png" alt="Logo Tienda" id="logo"></a>
+          <a class="navbar-brand" href="home.php"><img src="../images/logo-tienda.png" alt="Logo Tienda" id="logo"></a>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Elige tu TCG
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Yu-Gi-Oh</a></li>
-                  <li><a class="dropdown-item" href="#">Digimon TCG</a></li>
-                </ul>
-              </li>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="¿Buscas algo concreto?" aria-label="Search" style="margin-left:350px; width:500px">
+            <form class="d-flex" action="../utiles_php/busqueda.php" method="POST">
+            <input class="form-control me-2" type="text" placeholder="¿Buscas algo concreto?" aria-label="Buscar" name="busqueda" style="margin-left:350px; width:500px">
               <button class="btn btn-outline-success" type="submit">Buscar</button>
             </form>
           </div>
           <div class="row" style="margin: 10px;">
-            <a href="html/user.html"><p style="color: white;">Usuario</p></a>
+            <p style="color: white;"><?php echo($_SESSION["user"]["nombre"])?></p>
           </div>
           <div class="row" style="margin: 10px;">
-            <a href="html/cart.html">
+            <a href="carrito.php">
             <p style="color:white">
               Carrito
             </p>
@@ -52,17 +52,17 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col">
-                <img src="../images/magnificentmavensbox.png" alt="Caja Expertas" class="img-fluid" style="width:500px ;">
+                <img src="<?php echo $p->imagen ?>" alt="Imagen Producto" class="img-fluid" style="width:500px; margin-top:50px; margin-left:100px">
             </div>
-            <div class="col">
-                <h1 style="margin-top: 20px;">Caja Expertas Magnificas</h1> 
+            <div class="col"style="margin-top:50px">
+                <h1 style="margin-top: 20px;"><?php echo $p->nombre?></h1> 
                 <div class="row">
                   <div class="row" id="dato_producto">
-                    <div class="col">
+                    <div class="col" >
                         <h5>Impreso en:</h5>
                     </div>
                     <div class="col">
-                        <h5>03/11/2022 </h5>
+                        <h5><?php if($_COOKIE["producto"]=="cartas"){echo $p->rareza;}else{echo ("");}?></h5>
                     </div>
                   </div>
                 <div class="row" id="dato_producto">
@@ -70,7 +70,7 @@
                         <h5>Reimpreso en: </h5>
                     </div> 
                     <div class="col">
-                        <h5>MAMA</h5>
+                        <h5><?php if($_COOKIE["producto"]=="cartas"){echo $p->expansion;}else{echo ("");}?></h5>
                     </div>
                  </div>
                  <div class="row" id="dato_producto">
@@ -78,24 +78,41 @@
                         <h5>Precio: </h5>
                     </div> 
                     <div class="col">
-                        <h5>21$</h5>
+                        <h5><?php echo $p->precio?>€</h5>
                     </div>
                  </div>
                  <div class="row">
                     <div class="col">
-                        <p>Descripcion Producto:</p>
+                        <h5>Descripcion Producto:</h5>
                     </div>
                     <div class="row">
                             <div class="col">
-                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit minus cumque omnis vitae quisquam accusamus ducimus nostrum molestias, asperiores molestiae ipsam debitis adipisci facilis. Aliquid possimus id et praesentium ab. Aut ducimus accusamus delectus dignissimos sapiente aperiam doloremque ullam enim! Aliquid voluptate aliquam cum unde sint minima, totam sunt veritatis.
+                        <p> <?php if($_COOKIE["producto"]=="cartas"){echo $p->texto;}else{echo $p->descripcion;}?></p>
                         </div>
                     </div>
                    <div class="row">
                     <div class="col" style="margin-bottom: 10px;">
-                        <button type="button" class="btn btn-primary btn-lg"  style="background-color:#6e3dcf">Añadir al carrito</button>
+                    <form class="form-inline" method="post" action="../utiles_php/añadirCarrito.php">
+                    <input type="hidden" name="product_id" value="<?php echo $p->id; ?>">
+                    <input type="hidden" name="product_name" value="<?php echo $p->nombre;?>">
+                      <div class="form-group" style="display:flex">
+                      <?php
+	                    $found = false;
+
+	                    if(isset($_SESSION["cart"])){ foreach ($_SESSION["cart"] as $c) { if($c["product_id"]==$p->id && $c["product_name"]==$p->nombre){ $found=true; break; }}}
+	                    ?>
+                      <?php if($found):?>
+		                    <a href="carrito.php" class="btn btn-primary btn-lg" style="background-color:#6e3dcf">Agregado</a>
+	                    <?php else:?>
+                        <input type="number" name="q" value="1" style="width:100px; margin-right:20px;" min="1" class="form-control" placeholder="Cantidad">
+	                    <button type="submit" class="btn btn-primary btn-lg" style="background-color:#6e3dcf">Agregar al carrito</button>
+                      <?php endif; ?>
                     </div>
                    </div>
-
+            </div>
+          </div>
+        </div>
+      </div>
        
     </div>
   </main>

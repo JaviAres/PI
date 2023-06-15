@@ -1,57 +1,58 @@
 <?php
 session_start();
-unset($_SESSION["user"]);
-unset($_SESSION["admin"]);
-unset($_SESSION["cart"]);
 ?>
 <!DOCTYPE html>
 <html>
-
+<head>
 <head>
   <title>El maletín de Kaiba</title>
   <!-- Etiquetas Meta -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="shortcut icon" href="images/icono-tienda.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="../images/icono-tienda.ico" type="image/x-icon">
   <!-- Bootstrap CSS v5.2.1 -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
-
-  
 </head>
-
+</head>
 <body>
 
-<div class="container" style="width: 685px; margin-bottom:103px; margin-top:50px ">
+<div class="container">
 	<div class="row">
 		<div class="col-md-12">
       <div class="titulo" style="display:flex; align-items:center; justify-content:center">
-          <img src="images/logo-tienda.png" alt="Logo Tienda" id="logo">
-          <h1>Bienvenido al Maletin de Kaiba</h1>
+          <img src="../images/logo-tienda.png" alt="Logo Tienda" id="logo">
+          <h1>El Maletin de Kaiba</h1>
       </div>
 		<br>
 			<ul>
-	<form action="utiles_php/loginUsuario.php" method="POST" enctype="multipart/form-data">
+	<form action="../utiles_php/añadirUsuario.php" method="POST" enctype="multipart/form-data">
         <label>Nombre:</label>
                		<input type="text" name="nombre" placeholder="Nombre" class="form-control" required  /><br>
-        <label>Contraseña:</label>
+        <label>Primer Apellido:</label>
+               		<input type="text" name="primerapellido" placeholder="Primer Apellido" class="form-control" required/><br>
+        <label>Segundo Apellido:</label>
+               		<input type="text" name="segundoapellido" placeholder="Segundo Apellido" class="form-control" required/><br>
+				<label>Contraseña:</label>
                 	<input type="text" name="contraseña" placeholder="Contraseña" class="form-control" required/><br>
-        <div style="    display: flex;
-    justify-content: space-between;">
-	    <input type="submit" name="enviar" value="Login" class="btn btn-secondary btn-lg" />
-      <div>
-      <p>Aun no te has registrado? Hazlo ya!
-      <a href="php/registro.php"><input type="button" name="registro" value="¡Registrarse!" class="btn btn-secondary btn-lg"/></a>
-    </div>
-  </div>
+				<label>Correo:</label>
+                	<input type="text" name="correo" placeholder="Correo" class="form-control" required/><br>
+        <label>Telefono:</label>
+               		<input type="text" name="telefono" placeholder="Telefono" class="form-control" required/><br>
+				<label>Direccion:</label>
+                	<input type="text" name="direccion" placeholder="Direccion" class="form-control" required/><br>
+				<input type="submit" name="enviar" value="Registrar Usuario" class="btn btn-secondary btn-lg" />
+		
 			</ul>
-	</form>
-
+	</form>	
 		</div>
 	</div>
 </div>
+
+</body>
+</html>
 
   <footer class="bg-dark text-center text-white">
     <div class="container p-4">

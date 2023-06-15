@@ -1,3 +1,31 @@
+<?php
+session_start();
+include "../utiles_php/conexiondb.php";
+$reserva1_query="select * from salas where id=1";
+$reserva2_query="select * from salas where id=2";
+$reserva3_query="select * from salas where id=3";
+$reserva4_query="select * from salas where id=4";
+$reserva5_query="select * from salas where id=5";
+$reserva6_query="select * from salas where id=6";
+$reserva7_query="select * from salas where id=7";
+$reserva8_query="select * from salas where id=8";
+$reserva1= $con->query($reserva1_query);
+$reserva2= $con->query($reserva2_query);
+$reserva3= $con->query($reserva3_query);
+$reserva4= $con->query($reserva4_query);
+$reserva5= $con->query($reserva5_query);
+$reserva6= $con->query($reserva6_query);
+$reserva7= $con->query($reserva7_query);
+$reserva8= $con->query($reserva8_query);
+$r1= $reserva1->fetch_object();
+$r2= $reserva2->fetch_object();
+$r3= $reserva3->fetch_object();
+$r4= $reserva4->fetch_object();
+$r5= $reserva5->fetch_object();
+$r6= $reserva6->fetch_object();
+$r7= $reserva7->fetch_object();
+$r8= $reserva8->fetch_object();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -18,28 +46,19 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="../index.php"><img src="../images/logo-tienda.png" alt="Logo Tienda" id="logo"></a>
+          <a class="navbar-brand" href="home.php"><img src="../images/logo-tienda.png" alt="Logo Tienda" id="logo"></a>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Elige tu TCG
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Yu-Gi-Oh</a></li>
-                  <li><a class="dropdown-item" href="#">Digimon TCG</a></li>
-                </ul>
-              </li>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="¿Buscas algo concreto?" aria-label="Search" style="margin-left:350px; width:500px">
-              <button class="btn btn-outline-success" type="submit">Buscar</button>
-            </form>
+              <form class="d-flex" action="../utiles_php/busqueda.php" method="POST">
+            <input class="form-control me-2" type="text" placeholder="¿Buscas algo concreto?" aria-label="Buscar" name="busqueda" style="margin-left:350px; width:500px">
+            <button class="btn btn-outline-success" type="submit">Buscar</button>
+          </form>
           </div>
           <div class="row" style="margin: 10px;">
-            <a href="html/user.html"><p style="color: white;">Usuario</p></a>
+          <p style="color: white;"><?php echo($_SESSION["user"]["nombre"])?></p>
           </div>
           <div class="row" style="margin: 10px;">
-            <a href="html/cart.html">
+            <a href="carrito.php">
             <p style="color:white">
               Carrito
             </p>
@@ -55,107 +74,93 @@
                 <div class="col">
                     <h3 class="border-bottom border-dark">Sala 1</h3>
                     <div id="contenido_reservas">
-                    <img src="../images/logo-tienda.png" alt="Reserva Posible" id="logo-reserva-confirmado" class="img-fluid">
-                        <h4 id="reserva-disponible">Disponible</h4>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservaExito" id="boton-reserva">Reserva</button>
-                    </div>
+                    <form action="../utiles_php/reservarSala.php" method="POST">
+                    <img src=<?php if($r1->reservado==0){echo("../images/logo-tienda.png"); }else{echo("../images/espacio-ocupado.png");}?> alt="Reserva Posible" id=<?php if($r1->reservado==0){echo("logo-reserva-confirmado"); }else{echo("imagen-ocupado");}?> class="img-fluid">
+                        <h4 id=<?php if($r1->reservado==0){echo("reserva-disponible"); }else{echo("reserva-no-disponible");}?>><?php if($r1->reservado==0){echo("Disponible"); }else{echo("Ocupado");}?></h4>
+                        <input type="hidden" name="id_sala" value="<?php echo $r1->id;?>">
+                        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservaExito" id="boton-reserva"<?php if($r1->reservado==0){echo(""); }else{echo("disabled");}?>>Reserva</button>
+                    </form>
+                      </div>
                 </div>
                 <div class="col ">
                     <h3 class="border-bottom border-dark">Sala 2</h3>
                     <div id="contenido_reservas">
-                    <img src="../images/logo-tienda.png" alt="Reserva Posible" id="logo-reserva-confirmado" class="img-fluid">
-                    <h4 id="reserva-disponible">Disponible</h4>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservaExito" id="boton-reserva">Reserva</button>
-                    </div> 
+                    <form action="../utiles_php/reservarSala.php" method="POST">
+                    <img src=<?php if($r2->reservado==0){echo("../images/logo-tienda.png"); }else{echo("../images/espacio-ocupado.png");}?> alt="Reserva Posible" id=<?php if($r2->reservado==0){echo("logo-reserva-confirmado"); }else{echo("imagen-ocupado");}?> class="img-fluid">
+                        <h4 id=<?php if($r2->reservado==0){echo("reserva-disponible"); }else{echo("reserva-no-disponible");}?>><?php if($r2->reservado==0){echo("Disponible"); }else{echo("Ocupado");}?></h4>
+                        <input type="hidden" name="id_sala" value="<?php echo $r2->id;?>">
+                        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservaExito" id="boton-reserva"<?php if($r2->reservado==0){echo(""); }else{echo(" disabled");}?>>Reserva</button>
+                    </form>
+                  </div> 
                 </div>
                 <div class="col">
                     <h3 class="border-bottom border-dark">Sala 3</h3>
                     <div id="contenido_reservas">
-                    <img src="../images/espacio-ocupado.png" alt="Espacio Cerrado" id="imagen-ocupado" class="img-fluid">
-                    <h4 id="reserva-no-disponible">Ocupado</h4>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservaError" id="boton-reserva">Reserva</button>
-                   </div> 
+                    <form action="../utiles_php/reservarSala.php" method="POST">
+                    <img src=<?php if($r3->reservado==0){echo("../images/logo-tienda.png"); }else{echo("../images/espacio-ocupado.png");}?> alt="Reserva Posible" id=<?php if($r3->reservado==0){echo("logo-reserva-confirmado"); }else{echo("imagen-ocupado");}?> class="img-fluid">
+                        <h4 id=<?php if($r3->reservado==0){echo("reserva-disponible"); }else{echo("reserva-no-disponible");}?>><?php if($r3->reservado==0){echo("Disponible"); }else{echo("Ocupado");}?></h4>
+                        <input type="hidden" name="id_sala" value="<?php echo $r3->id;?>">
+                        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservaExito" id="boton-reserva"<?php if($r3->reservado==0){echo(""); }else{echo(" disabled");}?>>Reserva</button>
+                    </form>
+                  </div> 
                </div>
                 <div class="col">
                     <h3 class="border-bottom border-dark">Sala 4</h3>
                     <div id="contenido_reservas">
-                    <img src="../images/logo-tienda.png" alt="Reserva Posible" id="logo-reserva-confirmado" class="img-fluid">
-                    <h4  id="reserva-disponible">Disponible</h4>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservaExito" id="boton-reserva">Reserva</button>
-                </div> 
+                    <form action="../utiles_php/reservarSala.php" method="POST">
+                    <img src=<?php if($r4->reservado==0){echo("../images/logo-tienda.png"); }else{echo("../images/espacio-ocupado.png");}?> alt="Reserva Posible" id=<?php if($r4->reservado==0){echo("logo-reserva-confirmado"); }else{echo("imagen-ocupado");}?> class="img-fluid">
+                        <h4 id=<?php if($r4->reservado==0){echo("reserva-disponible"); }else{echo("reserva-no-disponible");}?>><?php if($r4->reservado==0){echo("Disponible"); }else{echo("Ocupado");}?></h4>
+                        <input type="hidden" name="id_sala" value="<?php echo $r4->id;?>">
+                        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservaExito" id="boton-reserva"<?php if($r4->reservado==0){echo(""); }else{echo(" disabled");}?>>Reserva</button>
+                    </form>
+                  </div> 
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <h3 class="border-bottom border-dark">Sala 5</h3>
                 <div id="contenido_reservas">
-                <img src="../images/espacio-ocupado.png" alt="Espacio Cerrado" id="imagen-ocupado" class="img-fluid">
-                <h4 id="reserva-no-disponible">Ocupado</h4>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservaError" id="boton-reserva">Reserva</button>
-                </div>
+                <form action="../utiles_php/reservarSala.php" method="POST">
+                    <img src=<?php if($r5->reservado==0){echo("../images/logo-tienda.png"); }else{echo("../images/espacio-ocupado.png");}?> alt="Reserva Posible" id=<?php if($r5->reservado==0){echo("logo-reserva-confirmado"); }else{echo("imagen-ocupado");}?> class="img-fluid">
+                        <h4 id=<?php if($r5->reservado==0){echo("reserva-disponible"); }else{echo("reserva-no-disponible");}?>><?php if($r5->reservado==0){echo("Disponible"); }else{echo("Ocupado");}?></h4>
+                        <input type="hidden" name="id_sala" value="<?php echo $r5->id;?>">
+                        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservaExito" id="boton-reserva"<?php if($r5->reservado==0){echo(""); }else{echo(" disabled");}?>>Reserva</button>
+                    </form>
+                  </div>
               </div>
             <div class="col">
                 <h3 class="border-bottom border-dark">Sala 6</h3>
                 <div id="contenido_reservas">
-                <img src="../images/espacio-ocupado.png" alt="Espacio Cerrado" id="imagen-ocupado" class="img-fluid">
-                <h4 id="reserva-no-disponible">Ocupado</h4>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservaError" id="boton-reserva">Reserva</button>
-                </div>
+                <form action="../utiles_php/reservarSala.php" method="POST">
+                    <img src=<?php if($r6->reservado==0){echo("../images/logo-tienda.png"); }else{echo("../images/espacio-ocupado.png");}?> alt="Reserva Posible" id=<?php if($r6->reservado==0){echo("logo-reserva-confirmado"); }else{echo("imagen-ocupado");}?> class="img-fluid">
+                        <h4 id=<?php if($r6->reservado==0){echo("reserva-disponible"); }else{echo("reserva-no-disponible");}?>><?php if($r6->reservado==0){echo("Disponible"); }else{echo("Ocupado");}?></h4>
+                        <input type="hidden" name="id_sala" value="<?php echo $r6->id;?>">
+                        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservaExito" id="boton-reserva"<?php if($r6->reservado==0){echo(""); }else{echo(" disabled");}?>>Reserva</button>
+                    </form></div>
               </div>
             <div class="col">
                 <h3 class="border-bottom border-dark">Sala 7</h3>
                 <div id="contenido_reservas">
-                <img src="../images/logo-tienda.png" alt="Reserva Posible" id="logo-reserva-confirmado" class="img-fluid">
-                <h4 id="reserva-disponible">Disponible</h4>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservaExito" id="boton-reserva">Reserva</button>
-                </div>
+                <form action="../utiles_php/reservarSala.php" method="POST">
+                    <img src=<?php if($r7->reservado==0){echo("../images/logo-tienda.png"); }else{echo("../images/espacio-ocupado.png");}?> alt="Reserva Posible" id=<?php if($r7->reservado==0){echo("logo-reserva-confirmado"); }else{echo("imagen-ocupado");}?> class="img-fluid">
+                        <h4 id=<?php if($r7->reservado==0){echo("reserva-disponible"); }else{echo("reserva-no-disponible");}?>><?php if($r7->reservado==0){echo("Disponible"); }else{echo("Ocupado");}?></h4>
+                        <input type="hidden" name="id_sala" value="<?php echo $r7->id;?>">
+                        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservaExito" id="boton-reserva"<?php if($r7->reservado==0){echo(""); }else{echo(" disabled");}?>>Reserva</button>
+                    </form></div>
               </div>
             <div class="col">
                 <h3 class="border-bottom border-dark">Sala 8</h3>
                 <div id="contenido_reservas">
-                <img src="../images/espacio-ocupado.png" alt="Espacio Cerrado" id="imagen-ocupado" class="img-fluid">
-                <h4 id="reserva-no-disponible"> Ocupado</h4>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservaError" id="boton-reserva">Reserva</button>            
-                </div>
+                <form action="../utiles_php/reservarSala.php" method="POST">
+                    <img src=<?php if($r8->reservado==0){echo("../images/logo-tienda.png"); }else{echo("../images/espacio-ocupado.png");}?> alt="Reserva Posible" id=<?php if($r8->reservado==0){echo("logo-reserva-confirmado"); }else{echo("imagen-ocupado");}?> class="img-fluid">
+                        <h4 id=<?php if($r8->reservado==0){echo("reserva-disponible"); }else{echo("reserva-no-disponible");}?>><?php if($r8->reservado==0){echo("Disponible"); }else{echo("Ocupado");}?></h4>
+                        <input type="hidden" name="id_sala" value="<?php echo $r8->id;?>">
+                        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservaExito" id="boton-reserva"<?php if($r8->reservado==0){echo(""); }else{echo(" disabled");}?>>Reserva</button>
+                    </form></div>
               </div>
         </div>
     </div>
-     <!-- Modal para reservas con exito -->
-     <div class="modal fade" id="reservaExito" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel">¡Estupendo!</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              ¡La reserva ha sido realizada con exito!
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">De acuerdo</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Modal para errores -->
-     <div class="modal fade" id="reservaError" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel">Lo Sentimos...</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              La reserva no se ha podido realizar ya que esta sala esta ocupada.
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">De acuerdo</button>
-            </div>
-          </div>
-        </div>
-      </div>
+    
   </main>
     <footer class="bg-dark text-center text-white">
         <div class="container p-4">
